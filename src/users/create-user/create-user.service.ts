@@ -9,7 +9,6 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { UserEntity } from '../../entities/user.entity';
 import { Repository } from 'typeorm';
 import { MailerService } from '../../mailer/mailer.service';
-import { ConfigService } from '@nestjs/config';
 import { JwtService } from '@nestjs/jwt';
 
 @Injectable()
@@ -18,7 +17,6 @@ export class CreateUserService {
     @InjectRepository(UserEntity)
     private readonly userRepository: Repository<UserEntity>,
     private readonly mailerService: MailerService,
-    private readonly configService: ConfigService,
     private readonly jwtService: JwtService,
   ) {}
   private readonly logger = new Logger(CreateUserService.name);
@@ -89,6 +87,7 @@ export class CreateUserService {
       });
     } catch (e) {
       this.logger.error(`Erro ao enviar email para usuário: ${id}`);
+      throw e;
     }
   }
 }

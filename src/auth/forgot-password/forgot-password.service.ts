@@ -1,4 +1,8 @@
-import { Injectable, Logger } from '@nestjs/common';
+import {
+  Injectable,
+  InternalServerErrorException,
+  Logger,
+} from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { UserEntity } from '../../entities/user.entity';
 import { Repository } from 'typeorm';
@@ -37,6 +41,9 @@ export class ForgotPasswordService {
         });
       } catch (e) {
         this.logger.error('Erro ao enviar email de forgot password.', e);
+        throw new InternalServerErrorException(
+          'Algo deu errado, tente novamente mais tarde.',
+        );
       }
     }
   }

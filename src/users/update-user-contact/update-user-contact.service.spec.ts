@@ -35,7 +35,6 @@ describe('UpdateUserContactService test suit', () => {
       name: 'teste',
       email: 'teste@teste.com',
       telephone: '123456789010',
-      advertisements: [],
     };
 
     const mockDatabaseUser = {
@@ -72,7 +71,6 @@ describe('UpdateUserContactService test suit', () => {
       name: 'teste',
       email: 'teste@teste.com',
       telephone: '123456789010',
-      advertisements: [],
     };
 
     const mockContactInfo: RequestUpdateUserContact = {
