@@ -78,7 +78,7 @@ export class CreateUserService {
     try {
       await this.mailerService.sendMail({
         to: email,
-        subject: 'Confirme seu e-mail - App College',
+        subject: 'Confirme seu e-mail - App',
         template: 'welcome',
         data: {
           name,

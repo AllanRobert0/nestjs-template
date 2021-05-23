@@ -32,7 +32,7 @@ export class ForgotPasswordService {
       try {
         await this.mailerService.sendMail({
           to: found.email,
-          subject: 'Alteração de senha - App College',
+          subject: 'Alteração de senha - App',
           template: 'welcome',
           data: {
             name: 'Ola',
